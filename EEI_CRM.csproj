@@ -1,0 +1,501 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A6F254F6-2E04-4B68-9A99-37EBCB73A495}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>EEI_CRM</RootNamespace>
+    <AssemblyName>EEI_CRM</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>SiRM Logo 756px.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>packages\BouncyCastle.Cryptography.2.3.1\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.26.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Protobuf.3.26.1\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4, Version=1.3.8.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>packages\K4os.Compression.LZ4.1.3.8\lib\net462\K4os.Compression.LZ4.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4.Streams, Version=1.3.8.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>packages\K4os.Compression.LZ4.Streams.1.3.8\lib\net462\K4os.Compression.LZ4.Streams.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Hash.xxHash, Version=1.0.8.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
+      <HintPath>packages\K4os.Hash.xxHash.1.0.8\lib\net462\K4os.Hash.xxHash.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=7.0.0.1, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Logging.Abstractions.7.0.1\lib\net462\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=9.0.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>packages\MySql.Data.9.0.0\lib\net48\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySqlConnector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=d33d3e53aa5f8c92, processorArchitecture=MSIL">
+      <HintPath>packages\MySqlConnector.2.3.7\lib\net48\MySqlConnector.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Configuration.ConfigurationManager.8.0.0\lib\net462\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=8.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Diagnostics.DiagnosticSource.8.0.1\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.IO.Pipelines, Version=5.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.Pipelines.5.0.2\lib\net461\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Json, Version=2.0.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\System.Json.4.7.1\lib\net461\System.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Encodings.Web.8.0.0\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=8.0.0.4, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Json.8.0.4\lib\net462\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZstdSharp, Version=0.8.0.0, Culture=neutral, PublicKeyToken=8d151af33a4ad5cf, processorArchitecture=MSIL">
+      <HintPath>packages\ZstdSharp.Port.0.8.0\lib\net462\ZstdSharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="PAGES\add_client.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PAGES\add_client.Designer.cs">
+      <DependentUpon>add_client.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PAGES\client_profile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PAGES\client_profile.Designer.cs">
+      <DependentUpon>client_profile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PAGES\load_screen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PAGES\load_screen.Designer.cs">
+      <DependentUpon>load_screen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PAGES\project_details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PAGES\project_details.Designer.cs">
+      <DependentUpon>project_details.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PAGES\settings_department_head.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PAGES\settings_department_head.Designer.cs">
+      <DependentUpon>settings_department_head.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PAGES\settings_employee_list.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PAGES\settings_employee_list.Designer.cs">
+      <DependentUpon>settings_employee_list.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PAGES\settings_unverified_accounts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PAGES\settings_unverified_accounts.Designer.cs">
+      <DependentUpon>settings_unverified_accounts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="user_control\settings_employee_list_table.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="user_control\settings_employee_list_table.Designer.cs">
+      <DependentUpon>settings_employee_list_table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="user_control\settings_unverified_table.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="user_control\settings_unverified_table.Designer.cs">
+      <DependentUpon>settings_unverified_table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="user_control\client_table.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="user_control\client_table.Designer.cs">
+      <DependentUpon>client_table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="user_control\custom_combo_box.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="user_control\custom_progress_bar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="user_control\dashboard_button.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="user_control\dashboard_button.Designer.cs">
+      <DependentUpon>dashboard_button.cs</DependentUpon>
+    </Compile>
+    <Compile Include="user_control\index_perproject_panel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="user_control\index_perproject_panel.Designer.cs">
+      <DependentUpon>index_perproject_panel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="user_control\navbar_mini.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="user_control\navbar_mini.Designer.cs">
+      <DependentUpon>navbar_mini.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PAGES\client.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PAGES\client.Designer.cs">
+      <DependentUpon>client.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PAGES\data.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PAGES\data.Designer.cs">
+      <DependentUpon>data.cs</DependentUpon>
+    </Compile>
+    <Compile Include="user_control\exit_button.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="user_control\exit_button.Designer.cs">
+      <DependentUpon>exit_button.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PAGES\index.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PAGES\index.Designer.cs">
+      <DependentUpon>index.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PAGES\login_page.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PAGES\login_page.Designer.cs">
+      <DependentUpon>login_page.cs</DependentUpon>
+    </Compile>
+    <Compile Include="user_control\navbar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="user_control\navbar.Designer.cs">
+      <DependentUpon>navbar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PAGES\project_add_project.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PAGES\project_add_project.Designer.cs">
+      <DependentUpon>project_add_project.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PAGES\project_page.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PAGES\project_page.Designer.cs">
+      <DependentUpon>project_page.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PAGES\tasks_add_task.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PAGES\tasks_add_task.Designer.cs">
+      <DependentUpon>tasks_add_task.cs</DependentUpon>
+    </Compile>
+    <Compile Include="user_control\page_table.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="user_control\page_table.Designer.cs">
+      <DependentUpon>page_table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="PAGES\Register_account.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PAGES\Register_account.Designer.cs">
+      <DependentUpon>Register_account.cs</DependentUpon>
+    </Compile>
+    <Compile Include="user_control\project_details_task_table.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="user_control\project_details_task_table.Designer.cs">
+      <DependentUpon>project_details_task_table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="user_control\Rounded_button.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="user_control\rounded_panel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PAGES\settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PAGES\settings.Designer.cs">
+      <DependentUpon>settings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PAGES\tasks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PAGES\tasks.Designer.cs">
+      <DependentUpon>tasks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="user_control\task_table.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="user_control\task_table.Designer.cs">
+      <DependentUpon>task_table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="user_control\text_box_mod.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="user_control\text_box_mod.Designer.cs">
+      <DependentUpon>text_box_mod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="user_control\UserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="user_control\UserControl1.Designer.cs">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PAGES\user_profile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PAGES\user_profile.Designer.cs">
+      <DependentUpon>user_profile.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="PAGES\add_client.resx">
+      <DependentUpon>add_client.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PAGES\client_profile.resx">
+      <DependentUpon>client_profile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PAGES\load_screen.resx">
+      <DependentUpon>load_screen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PAGES\project_details.resx">
+      <DependentUpon>project_details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PAGES\settings_department_head.resx">
+      <DependentUpon>settings_department_head.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PAGES\settings_employee_list.resx">
+      <DependentUpon>settings_employee_list.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PAGES\settings_unverified_accounts.resx">
+      <DependentUpon>settings_unverified_accounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="user_control\settings_employee_list_table.resx">
+      <DependentUpon>settings_employee_list_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="user_control\settings_unverified_table.resx">
+      <DependentUpon>settings_unverified_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="user_control\client_table.resx">
+      <DependentUpon>client_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="user_control\custom_combo_box.resx">
+      <DependentUpon>custom_combo_box.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="user_control\dashboard_button.resx">
+      <DependentUpon>dashboard_button.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="user_control\index_perproject_panel.resx">
+      <DependentUpon>index_perproject_panel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="user_control\navbar_mini.resx">
+      <DependentUpon>navbar_mini.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PAGES\client.resx">
+      <DependentUpon>client.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PAGES\data.resx">
+      <DependentUpon>data.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="user_control\exit_button.resx">
+      <DependentUpon>exit_button.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PAGES\index.resx">
+      <DependentUpon>index.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PAGES\login_page.resx">
+      <DependentUpon>login_page.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="user_control\navbar.resx">
+      <DependentUpon>navbar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PAGES\project_add_project.resx">
+      <DependentUpon>project_add_project.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PAGES\project_page.resx">
+      <DependentUpon>project_page.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PAGES\tasks_add_task.resx">
+      <DependentUpon>tasks_add_task.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="user_control\page_table.resx">
+      <DependentUpon>page_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PAGES\Register_account.resx">
+      <DependentUpon>Register_account.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PAGES\settings.resx">
+      <DependentUpon>settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PAGES\tasks.resx">
+      <DependentUpon>tasks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="user_control\project_details_task_table.resx">
+      <DependentUpon>project_details_task_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="user_control\task_table.resx">
+      <DependentUpon>task_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="user_control\text_box_mod.resx">
+      <DependentUpon>text_box_mod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="user_control\UserControl1.resx">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PAGES\user_profile.resx">
+      <DependentUpon>user_profile.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="logo\EEI Power Logo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="logo\bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="logo\register_account_bg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="logo\register_account_bg.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="logo\fade_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="logo\close.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="logo\user%282%29.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="logo\user vector2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="logo\user 256 vector.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SiRM Logo 756px.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
